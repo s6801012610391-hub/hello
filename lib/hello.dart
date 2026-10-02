@@ -51,7 +51,7 @@ class _HelloAppState extends State<HelloApp> {
                   name = _nameInputController.text;
                 });
               },
-            child: const Text('Hello'),
+              child: const Text('Hello'),
             ),
 
             const SizedBox(height: 20),

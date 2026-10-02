@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello/hello.dart';
+import 'package:hello/rock_paper_scissors.dart';
 
 // 1. The Entry Point
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HelloApp()
+      home: RockPaperScissors()
     );
   }
 }
