@@ -2,6 +2,25 @@ import 'package:flutter/material.dart';
 
 enum Pick {rock, paper, scissors, nothing}
 
+String calResult(Pick player1, Pick player2) {
+  if (player1 == Pick.nothing && player2 == Pick.nothing){
+    return 'nothing';
+  }
+  else if (player1 == player2) {return 'Tie';}
+  else if (player1 == Pick.rock) {
+    return player2 == Pick.paper ? 'Player 2 won': 'Player 1 won';
+  }
+  else if (player1 == Pick.paper) {
+    return player2 == Pick.rock ? 'Player 1 won' : 'Player 2 won';
+  }
+  else if (player1 == Pick.scissors) {
+    return player2 == Pick.rock ? 'Player 2 won' : 'Player 1 won';
+  }
+  else {
+    return 'error';
+  }
+}
+
 class RockPaperScissors extends StatefulWidget {
   const RockPaperScissors({super.key});
 
@@ -13,22 +32,6 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
   Pick player1 = Pick.nothing;
   Pick player2 = Pick.nothing;
   String _result = '';
-
-  String calResult(Pick player1, Pick player2) {
-    if (player1 == player2) {return 'Tie';}
-    else if (player1 == Pick.rock) {
-      return player2 == Pick.paper ? 'Player 2 won': 'Player 1 won';
-    }
-    else if (player1 == Pick.paper) {
-      return player2 == Pick.rock ? 'Player 1 won' : 'Player 2 won';
-    }
-    else if (player1 == Pick.scissors) {
-      return player2 == Pick.rock ? 'Player 2 won' : 'Player 1 won';
-    }
-    else {
-      return 'error';
-    }
-  }
 
   @override
   void dispose() {
@@ -60,6 +63,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player1 = Pick.rock;
                     });
                   },
+                  key: Key('p1r'),
                   child: const Text('Rock'),
                 ),
 
@@ -69,6 +73,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player1 = Pick.paper;
                     });
                   },
+                  key: Key('p1p'),
                   child: const Text('Paper'),
                 ),
 
@@ -78,6 +83,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player1 = Pick.scissors;
                     });
                   },
+                  key: Key('p1s'),
                   child: const Text('Scissors')
                 ),
               ],
@@ -96,6 +102,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player2 = Pick.rock;
                     });
                   },
+                  key: Key('p2r'),
                   child: const Text('Rock'),
                 ),
 
@@ -105,6 +112,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player2 = Pick.paper;
                     });
                   },
+                  key: Key('p2p'),
                   child: const Text('Paper'),
                 ),
 
@@ -114,6 +122,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                       player2 = Pick.scissors;
                     });
                   },
+                  key: Key('p2s'),
                   child: const Text('Scissors')
                 ),
               ],
