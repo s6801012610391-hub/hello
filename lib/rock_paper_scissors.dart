@@ -141,11 +141,20 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
 
             const SizedBox(height: 40,),
 
-            Text('Player 1 $player1'),
+            Text(
+              'Player 1 $player1',
+              key: Key('p1_pick'),
+            ),
 
-            Text('Player 2 $player2'),
+            Text(
+              'Player 2 $player2',
+              key: Key('p2_pick'),
+            ),
 
-            Text('$_result'),
+            Text(
+              '$_result',
+              key: Key('result_text'),
+            ),
 
           ],
         )
